@@ -1,14 +1,145 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#06458f"><title>Field Atlas | OEOO Philippines</title><meta name="description" content="Explore OEOO Philippines field survey locations and marine observations."><link rel="preconnect" href="https://unpkg.com"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><style>
-:root{--blue:#06458f;--deep:#082e5c;--teal:#00a9b4;--lime:#d6e872;--ube:#c4a4de;--ink:#17314a;--muted:#6b7d8c;--paper:#f7f9fa;--line:#e1e9ed;--white:#fff}*{box-sizing:border-box}html,body{height:100%;margin:0}body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:var(--paper)}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--teal);outline-offset:2px}.app{display:grid;grid-template-columns:382px minmax(0,1fr);grid-template-rows:74px minmax(0,1fr);height:100dvh;min-height:500px}.top{grid-column:1/-1;background:var(--white);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px;z-index:1001}.brand{display:flex;align-items:center;gap:13px}.brand img{width:48px;height:48px;object-fit:contain}.brand strong{font-size:15px;letter-spacing:.025em;display:block;color:var(--deep)}.brand small{display:block;color:var(--muted);font-size:11px;letter-spacing:.11em;text-transform:uppercase;margin-top:3px}.topright{display:flex;gap:10px;align-items:center}.eyebrow{color:var(--teal);font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}.tag{font-size:11px;font-weight:800;letter-spacing:.08em;background:#eaf5f5;color:#007f89;padding:9px 12px;border-radius:40px}.sidebar{overflow-y:auto;background:#fff;border-right:1px solid var(--line);padding:28px 22px 20px;z-index:500}.sidebar h1{font-size:34px;line-height:1.06;letter-spacing:-.055em;margin:12px 0}.sidebar h1 em{font-style:normal;color:var(--blue)}.intro{font-size:13px;color:var(--muted);line-height:1.65;margin:0 0 23px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:20px}.stat{background:#f1f6f9;padding:14px;border-radius:13px}.stat strong{display:block;font-size:26px;color:var(--blue);letter-spacing:-.05em}.stat span{font-size:11px;color:var(--muted)}.controls{display:flex;gap:8px;margin-bottom:12px}.search{width:100%;background:#fff;border:1px solid var(--line);border-radius:11px;padding:12px 13px;color:var(--ink)}.filter{border:1px solid var(--line);background:white;border-radius:11px;padding:11px 8px;max-width:125px;color:var(--ink)}.sectionline{display:flex;align-items:center;justify-content:space-between;margin:18px 0 10px}.sectionline h2{font-size:12px;text-transform:uppercase;letter-spacing:.11em;margin:0}.sectionline span{font-size:11px;color:var(--muted)}.site-list{display:flex;flex-direction:column;gap:8px}.site{border:1px solid var(--line);background:white;border-radius:13px;text-align:left;padding:13px 13px 12px;width:100%;transition:.18s}.site:hover,.site.active{border-color:var(--teal);background:#f1fbfb}.site.active{box-shadow:inset 3px 0 0 var(--teal)}.site-head{display:flex;align-items:center;justify-content:space-between;gap:8px}.site-name{font-size:14px;font-weight:750}.pill{font-size:10px;font-weight:800;letter-spacing:.03em;border-radius:30px;padding:5px 8px;background:#e8f7f8;color:#087e87}.pill.wreck{background:#f2eafa;color:#765098}.site-coord{display:block;color:var(--muted);font-size:11px;margin-top:7px;font-variant-numeric:tabular-nums}.site-date{display:block;color:#82919b;font-size:11px;margin-top:5px}.bottom{border-top:1px solid var(--line);margin-top:24px;padding-top:17px}.bottom p{color:var(--muted);font-size:11px;line-height:1.6}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:white;border-radius:10px;padding:10px 12px;font-size:12px;font-weight:700;color:var(--deep)}.btn.primary{background:var(--blue);color:white;border-color:var(--blue)}.map-wrap{position:relative;min-width:0}#map{height:100%;width:100%;background:#d9e8eb}.map-banner{position:absolute;z-index:450;top:20px;left:20px;right:20px;max-width:340px;pointer-events:none;background:#fff;border:1px solid #e2e9ed;box-shadow:0 8px 30px #0c2e4b1c;border-radius:14px;padding:14px 17px}.map-banner strong{display:block;font-size:13px}.map-banner span{display:block;color:var(--muted);font-size:11px;margin-top:4px;line-height:1.4}.legend{position:absolute;bottom:24px;right:18px;z-index:450;background:white;padding:12px 14px;border-radius:12px;box-shadow:0 8px 28px #17314a20;font-size:11px;display:flex;gap:14px;align-items:center}.dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--teal);margin-right:5px}.dot.wreck{background:#9b6ec4}.leaflet-container{font-family:inherit}.leaflet-popup-content-wrapper{border-radius:14px}.leaflet-popup-content{margin:15px 17px;min-width:195px}.popup-title{font-size:15px;font-weight:800;color:var(--deep);margin:0 0 7px}.popup-sub{font-size:12px;color:var(--muted);line-height:1.65}.popup-link{margin-top:9px;display:inline-block;color:var(--blue);font-size:12px;font-weight:750;text-decoration:none}.pin{width:19px;height:19px;background:var(--teal);border:4px solid white;box-shadow:0 0 0 2px #008c9c,0 2px 12px #001c3150;border-radius:50%}.pin.wreck{background:var(--ube);box-shadow:0 0 0 2px #8660b0,0 2px 12px #001c3150}.pin.selected{width:25px;height:25px;transform:translate(-3px,-3px);box-shadow:0 0 0 3px var(--blue),0 0 0 8px #06458f30}.leaflet-div-icon{background:transparent;border:none}.mobile-switch{display:none}.empty{color:var(--muted);font-size:13px;padding:16px;background:#f5f8fa;border-radius:12px}.footer-brand{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:800;color:var(--blue)}.footer-brand img{width:30px;height:30px;object-fit:contain}@media(max-width:760px){.app{grid-template-columns:1fr;grid-template-rows:66px 1fr}.top{padding:0 16px}.brand img{width:42px;height:42px}.tag{display:none}.sidebar{grid-row:2;grid-column:1;padding:20px 17px}.map-wrap{grid-row:2;grid-column:1;display:none}.app.show-map .sidebar{display:none}.app.show-map .map-wrap{display:block}.mobile-switch{display:block;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:1200;border:none;background:var(--blue);color:white;border-radius:30px;padding:14px 23px;box-shadow:0 5px 25px #123d4a55;font-weight:800}.map-banner{top:12px;left:12px;right:12px;padding:11px 14px}.legend{bottom:76px;right:10px}.sidebar h1{font-size:30px}}@media(min-width:761px){.sidebar{display:block!important}.map-wrap{display:block!important}}
-</style></head><body><div class="app" id="app"><header class="top"><div class="brand"><img src="oeoo-logo.png" alt="One Earth One Ocean logo"><div><strong>OEOO PHILIPPINES</strong><small>Field Atlas · Marine observations</small></div></div><div class="topright"><span class="tag">FIELD RECORDS · 2026</span><button class="btn" id="resetTop">View all sites ↗</button></div></header><aside class="sidebar"><div class="eyebrow">Explore our fieldwork</div><h1>Marine<br><em>Field Atlas.</em></h1><p class="intro">An evolving record of locations documented by OEOO Philippines. Explore coordinates, survey observations and future mooring assessments.</p><div class="stats"><div class="stat"><strong id="totalCount">3</strong><span>Recorded positions</span></div><div class="stat"><strong id="wreckCount">1</strong><span>Shipwreck observations</span></div></div><div class="controls"><input class="search" id="search" type="search" placeholder="Search locations…" aria-label="Search locations"><select class="filter" id="filter" aria-label="Filter locations"><option value="all">All types</option><option value="survey">Survey points</option><option value="wreck">Shipwrecks</option></select></div><div class="sectionline"><h2>Locations</h2><span id="shownCount">3 shown</span></div><div class="site-list" id="siteList"></div><div class="bottom"><div class="actions"><button class="btn primary" id="export">↓ Export CSV</button><button class="btn" id="fit">◎ Fit all points</button></div><p>Coordinates shown are field records, not verified navigational guidance or confirmed mooring installations. Check site status before operational use.</p><div class="footer-brand"><img src="OEoo Ocean Earth Logo.png" alt=""> ONE EARTH · ONE OCEAN</div></div></aside><main class="map-wrap"><div id="map" role="application" aria-label="Interactive map of OEOO Philippines field coordinates"></div><div class="map-banner"><strong>Mindoro · Field survey</strong><span>October 16, 2026 · 3 recorded locations · Click a point for details</span></div><div class="legend"><span><i class="dot"></i> Survey</span><span><i class="dot wreck"></i> Shipwreck</span></div></main><button class="mobile-switch" id="mobileSwitch">View map ↗</button></div><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script>
-// Add future records here. Dates and coordinates below are transcribed from the supplied spreadsheet.
-const sites=[
-{id:'survey-01',name:'Survey Point 01',date:'2026-10-16',time:'10:36 AM',lat:13.509716,lng:120.950661,type:'survey',note:'No site description supplied.'},
-{id:'wreck-01',name:'Ship Wreck',date:'2026-10-16',time:'12:03 PM',lat:13.510405,lng:120.950215,type:'wreck',note:'Recorded as “Ship Wreck” in the source spreadsheet.'},
-{id:'survey-02',name:'Survey Point 02',date:'2026-10-16',time:'3:12 PM',lat:13.50948,lng:120.950006,type:'survey',note:'No site description supplied.'}
-];
-const map=L.map('map',{zoomControl:false}).setView([13.5099,120.9503],17);L.control.zoom({position:'bottomright'}).addTo(map);L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>'}).addTo(map);
-const layer=L.layerGroup().addTo(map);let selected=null;const el=id=>document.getElementById(id);const coord=s=>`${s.lat.toFixed(6)}, ${s.lng.toFixed(6)}`;function iconFor(s){return L.divIcon({className:'',html:`<div class="pin ${s.type==='wreck'?'wreck':''} ${selected===s.id?'selected':''}"></div>`,iconSize:[25,25],iconAnchor:[12,12]})}const markers=new Map();sites.forEach(s=>{const m=L.marker([s.lat,s.lng],{icon:iconFor(s),title:s.name}).addTo(layer);m.bindPopup(`<div class="popup-title">${s.name}</div><div class="popup-sub">${s.date} · ${s.time}<br>${coord(s)}<br>${s.note}</div><a class="popup-link" href="https://www.openstreetmap.org/?mlat=${s.lat}&mlon=${s.lng}#map=18/${s.lat}/${s.lng}" target="_blank" rel="noopener">Open in OpenStreetMap ↗</a>`);m.on('click',()=>select(s.id,false));markers.set(s.id,m)});
-function filtered(){const q=el('search').value.trim().toLowerCase(),t=el('filter').value;return sites.filter(s=>(t==='all'||s.type===t)&&[s.name,s.date,s.time,s.note,coord(s)].join(' ').toLowerCase().includes(q))}function render(){const visible=filtered();el('shownCount').textContent=`${visible.length} shown`;el('siteList').innerHTML=visible.length?'':'<div class="empty">No locations match your search.</div>';visible.forEach(s=>{const b=document.createElement('button');b.className='site'+(selected===s.id?' active':'');b.innerHTML=`<div class="site-head"><span class="site-name">${s.name}</span><span class="pill ${s.type==='wreck'?'wreck':''}">${s.type==='wreck'?'Shipwreck':'Survey'}</span></div><span class="site-coord">${coord(s)}</span><span class="site-date">${s.date} · ${s.time}</span>`;b.addEventListener('click',()=>select(s.id,true));el('siteList').appendChild(b)});markers.forEach((m,id)=>{const s=sites.find(x=>x.id===id);if(visible.includes(s)){if(!layer.hasLayer(m))layer.addLayer(m)}else{layer.removeLayer(m)}})}function select(id,fly){selected=id;markers.forEach((m,k)=>m.setIcon(iconFor(sites.find(s=>s.id===k))));render();const m=markers.get(id);if(fly){map.flyTo(m.getLatLng(),18,{duration:.6});m.openPopup();if(innerWidth<761){el('app').classList.add('show-map');el('mobileSwitch').textContent='View locations ☰';setTimeout(()=>map.invalidateSize(),60)}}}function fit(){const v=filtered();if(v.length)map.fitBounds(L.latLngBounds(v.map(s=>[s.lat,s.lng])).pad(.28),{maxZoom:17,animate:true});else map.setView([13.5099,120.9503],16)}el('search').addEventListener('input',()=>{render();fit()});el('filter').addEventListener('change',()=>{render();fit()});el('fit').addEventListener('click',fit);el('resetTop').addEventListener('click',()=>{el('search').value='';el('filter').value='all';selected=null;render();fit();if(innerWidth<761){el('app').classList.add('show-map');el('mobileSwitch').textContent='View locations ☰';setTimeout(()=>map.invalidateSize(),60)}});el('mobileSwitch').addEventListener('click',()=>{const show=el('app').classList.toggle('show-map');el('mobileSwitch').textContent=show?'View locations ☰':'View map ↗';if(show)setTimeout(()=>map.invalidateSize(),70)});el('export').addEventListener('click',()=>{const rows=[['Name','Date','Time','Latitude','Longitude','Type','Notes'],...filtered().map(s=>[s.name,s.date,s.time,s.lat,s.lng,s.type,s.note])];const csv=rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='oeoo-philippines-field-sites.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)});el('totalCount').textContent=sites.length;el('wreckCount').textContent=sites.filter(s=>s.type==='wreck').length;render();fit();
-</script></body></html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="#06458f" name="theme-color"/>
+  <title>
+   Field Atlas | OEOO Philippines
+  </title>
+  <meta content="Explore OEOO Philippines field survey locations and marine observations." name="description"/>
+  <link href="https://unpkg.com" rel="preconnect"/>
+  <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
+  <link href="styles.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="app" id="app">
+   <header class="top">
+    <div class="brand">
+     <img alt="One Earth One Ocean logo" src="assets/oeoo-logo.png"/>
+     <div>
+      <strong>
+       OEOO PHILIPPINES
+      </strong>
+      <small>
+       Field Atlas · Marine observations
+      </small>
+     </div>
+    </div>
+    <div class="topright">
+     <span class="tag">
+      FIELD RECORDS · 2026
+     </span>
+     <button class="btn" id="resetTop">
+      View all sites ↗
+     </button>
+    </div>
+   </header>
+   <aside class="sidebar">
+    <div class="eyebrow">
+     Explore our fieldwork
+    </div>
+    <h1>
+     Marine
+     <br/>
+     <em>
+      Field Atlas.
+     </em>
+    </h1>
+    <p class="intro">
+     An evolving record of locations documented by OEOO Philippines. Explore coordinates, survey observations and future mooring assessments.
+    </p>
+    <div class="stats">
+     <div class="stat">
+      <strong id="totalCount">
+       3
+      </strong>
+      <span>
+       Recorded positions
+      </span>
+     </div>
+     <div class="stat">
+      <strong id="wreckCount">
+       1
+      </strong>
+      <span>
+       Shipwreck observations
+      </span>
+     </div>
+    </div>
+    <div class="controls">
+     <input aria-label="Search locations" class="search" id="search" placeholder="Search locations…" type="search"/>
+     <select aria-label="Filter locations" class="filter" id="filter">
+      <option value="all">
+       All types
+      </option>
+      <option value="survey">
+       Survey points
+      </option>
+      <option value="wreck">
+       Shipwrecks
+      </option>
+     </select>
+    </div>
+    <div class="sectionline">
+     <h2>
+      Locations
+     </h2>
+     <span id="shownCount">
+      3 shown
+     </span>
+    </div>
+    <div class="site-list" id="siteList">
+    </div>
+    <div class="bottom">
+     <div class="actions">
+      <button class="btn primary" id="export">
+       ↓ Export CSV
+      </button>
+      <button class="btn" id="fit">
+       ◎ Fit all points
+      </button>
+     </div>
+     <p>
+      Coordinates shown are field records, not verified navigational guidance or confirmed mooring installations. Check site status before operational use.
+     </p>
+     <div class="footer-brand">
+      <img alt="" src="assets/oeoo-logo.png"/>
+      ONE EARTH · ONE OCEAN
+     </div>
+    </div>
+   </aside>
+   <main class="map-wrap">
+    <div aria-label="Interactive map of OEOO Philippines field coordinates" id="map" role="application">
+    </div>
+    <div class="map-banner">
+     <strong>
+      Mindoro · Field survey
+     </strong>
+     <span>
+      October 16, 2026 · 3 recorded locations · Click a point for details
+     </span>
+    </div>
+    <div class="legend">
+     <span>
+      <i class="dot">
+      </i>
+      Survey
+     </span>
+     <span>
+      <i class="dot wreck">
+      </i>
+      Shipwreck
+     </span>
+    </div>
+   </main>
+   <button class="mobile-switch" id="mobileSwitch">
+    View map ↗
+   </button>
+  </div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+  </script>
+  <script src="script.js">
+  </script>
+ </body>
+</html>
