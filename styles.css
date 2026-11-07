@@ -420,7 +420,7 @@ button:focus-visible,input:focus-visible,select:focus-visible {
 }
 
 .pin.wreck {
-  background:var(--ube);
+  background:var(--lime);
   box-shadow:0 0 0 2px #8660b0,0 2px 12px #001c3150
 }
 
